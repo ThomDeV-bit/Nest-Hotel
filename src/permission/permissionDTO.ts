@@ -1,4 +1,4 @@
 /* eslint-disable prettier/prettier */
-export type permissionDTO  = {
+export type permissionDTO   = {
     description : string
 }

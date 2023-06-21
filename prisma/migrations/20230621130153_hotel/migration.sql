@@ -18,11 +18,11 @@ CREATE TABLE `permission` (
 
 -- CreateTable
 CREATE TABLE `user_permission` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
     `id_permission` INTEGER NOT NULL,
     `id_user` INTEGER NOT NULL,
 
-    UNIQUE INDEX `user_permission_id_permission_key`(`id_permission`),
-    UNIQUE INDEX `user_permission_id_user_key`(`id_user`)
+    PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey

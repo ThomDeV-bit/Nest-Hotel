@@ -1,21 +1,28 @@
 /* eslint-disable prettier/prettier */
 import { UserPermissionService } from "./user_permission.service";
-import { Controller,Post, Body, Get} from "@nestjs/common";
+import { Controller, Post, Body, Get } from "@nestjs/common";
 import { userPermissionDTO } from "./user_permissionDTO";
 
-@Controller('User_Permission')
+@Controller("permissao")
 
-export class User_PermissionControler {
-    constructor (private readonly userpermisisonService : UserPermissionService){}
+export class UserPermissionControler {
+    constructor(private readonly userpermisisonService: UserPermissionService) { }
 
-    @Get()
-    async getUserPermission(){
-        return await this.userpermisisonService.getUserPermission()
+    @Get("/find")
+        async getUserPermission() {
+            try{
+
+            return await this.userpermisisonService.getUserPermission()
+        
+    } catch (error) {
+        console.log(error)
+    }
+    
     }
 
-    @Post()
-    async createUserPermission(data: userPermissionDTO){
-        return this.userpermisisonService.createUserPermission(data)
+    @Post("/create")
+    async createUserPermission(@Body() data: userPermissionDTO) {
+        return await this.userpermisisonService.createUserPermission(data)
     }
 
 }

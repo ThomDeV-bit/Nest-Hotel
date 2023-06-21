@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import { PermissionService } from "./permission.service";
-import { Injectable, Controller, Get, Post, Body } from "@nestjs/common"
+import {  Controller, Get, Post, Body } from "@nestjs/common"
 import { permissionDTO } from "./permissionDTO";
 
 

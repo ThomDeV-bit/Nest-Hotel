@@ -1,7 +1,11 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable prettier/prettier */
-export type userPermissionDTO = {
-    id_permission : number
-    id_user : number
 
+import { Prisma } from "@prisma/client";
+
+/* eslint-disable prettier/prettier */
+export class userPermissionDTO implements Prisma.user_permissionUncheckedCreateInput{
+    id_user: number;
+    id_permission: number;
+    
 }
+    

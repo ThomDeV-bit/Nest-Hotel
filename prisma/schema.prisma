@@ -20,12 +20,13 @@ model User {
 model permission {
   id          Int               @id @default(autoincrement())
   description String
-  permission  user_permission []
+  permission  user_permission[]
 }
 
 model user_permission {
-  id_permission Int        @unique
-  id_user       Int        @unique
+  id Int @default(autoincrement()) @id
+  id_permission Int
+  id_user       Int        
   user          User       @relation(fields: [id_user], references: [id_user])
   permission    permission @relation(fields: [id_permission], references: [id])
 }

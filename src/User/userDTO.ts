@@ -1,5 +1,9 @@
 /* eslint-disable prettier/prettier */
-export type userDTO = {
+import { Prisma } from "@prisma/client"
+
+/* eslint-disable prettier/prettier */
+export class userDTO  implements Prisma.UserCreateInput{
     name : string
-    mail : string
+    mail: string
+    user_permission?: Prisma.user_permissionCreateNestedManyWithoutUserInput;
 }

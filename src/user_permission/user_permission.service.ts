@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/adjacent-overload-signatures */
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import { Injectable } from "@nestjs/common";
@@ -21,21 +23,17 @@ export class UserPermissionService {
             }
         })
 
-        const permissionExists = await this.prisma.permission.findFirst({
-            where: {
-                id : data.id_permission
-            }
-        })
-        if (userExists && permissionExists){
+    
+        if (userExists) {
             try {
                 const createUserPermission = await this.prisma.user_permission.create({
-                    data : {
-                        id_permission : permissionExists.id,
-                        id_user : userExists.id_user
+                    data: {
+                        id_permission: data.id_permission,
+                        id_user: userExists.id_user
                     }
                 })
             } catch (error) {
-                return console.log(error)
+                 throw new error
             }
         }
         else {
