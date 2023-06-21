@@ -7,7 +7,7 @@ import { userPermissionDTO } from "./user_permissionDTO";
 
 @Injectable()
 
-export class userPermissionService {
+export class UserPermissionService {
     constructor(private readonly prisma: PrismaService) { }
     async getUserPermission() {
         return await this.prisma.user_permission.findMany()
